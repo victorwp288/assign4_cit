@@ -13,7 +13,7 @@ namespace DataLayer.Data
         // Configure the connection string
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Database=northwind;Username=postgres;Password=Hejmed12!;Client Encoding=UTF8");
+            optionsBuilder.UseNpgsql("Host=localhost;Database=northwind;Username=postgres;Password=Hejmed12!");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
