@@ -2,15 +2,14 @@
 {
     public class OrderDetails
     {
-        // Composite Key: OrderId + ProductId
         public int OrderId { get; set; }
-        public Order Order { get; set; }          // Navigation property
+        public Order Order { get; set; }          
 
         public int ProductId { get; set; }
-        public Product Product { get; set; }      // Navigation property
+        public Product Product { get; set; }      
 
-        public double UnitPrice { get; set; }    // unitprice
-        public int Quantity { get; set; }        // quantity (changed from double to int)
-        public float Discount { get; set; }      // discount
+        public double UnitPrice { get; set; }    
+        public int Quantity { get; set; }        
+        public float Discount { get; set; }  
     }
 }
