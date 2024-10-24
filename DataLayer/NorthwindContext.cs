@@ -11,7 +11,7 @@ namespace DataLayer.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Database=northwind;Username=postgres;Password=Hejmed12!");
+            optionsBuilder.UseNpgsql("Host=localhost;Database=northwind;Username=postgres;Password=<YourOwnPassword>");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
