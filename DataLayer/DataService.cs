@@ -95,8 +95,6 @@ namespace DataLayer
             var products = db.Products
                 .Include(p => p.Category)
                 .Where(p => p.Name.Contains(substring))
-                // Remove the OrderBy clause
-                // .OrderBy(p => p.Name)
                 .Select(p => new ProductNameCategoryDTO
                 {
                     ProductName = p.Name,
@@ -115,7 +113,7 @@ namespace DataLayer
             var products = db.Products
                 .Include(p => p.Category)
                 .Where(p => p.CategoryId == categoryId)
-                .OrderBy(p => p.Id) // Added ordering to match test expectations
+                .OrderBy(p => p.Id) 
                 .ToList();
             return products;
         }
@@ -134,7 +132,7 @@ namespace DataLayer
         {
             using var db = new NorthwindContext();
             var categories = db.Categories
-                .OrderBy(c => c.Id) // Added ordering to match test expectations
+                .OrderBy(c => c.Id)
                 .ToList();
             return categories;
         }
@@ -150,7 +148,7 @@ namespace DataLayer
 
             var category = new Category
             {
-                Id = newId, // Assign the new Id
+                Id = newId,
                 Name = name,
                 Description = description
             };
@@ -193,9 +191,7 @@ namespace DataLayer
             }
             catch (DbUpdateException ex)
             {
-                // Log the exception details
                 Console.WriteLine($"Error deleting category: {ex.Message}");
-                // Optionally, rethrow the exception
                 throw;
             }
         }

@@ -4,13 +4,11 @@ namespace DataLayer.Data
 {
     public class NorthwindContext : DbContext
     {
-        // DbSet properties
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetails> OrderDetails { get; set; }
 
-        // Configure the connection string
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseNpgsql("Host=localhost;Database=northwind;Username=postgres;Password=Hejmed12!");
@@ -43,7 +41,6 @@ namespace DataLayer.Data
                 entity.Property(e => e.QuantityPerUnit).HasColumnName("quantityperunit");
                 entity.Property(e => e.UnitsInStock).HasColumnName("unitsinstock");
 
-                // **Add this line to map CategoryId correctly**
                 entity.Property(e => e.CategoryId).HasColumnName("categoryid");
 
                 // Relationships
